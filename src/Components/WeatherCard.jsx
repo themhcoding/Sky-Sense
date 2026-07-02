@@ -40,11 +40,30 @@ function WeatherCard({ weather, forecast, unit }) {
   const highTemps = todayForecast.map((item) => item.main.temp_max);
   const lowTemps = todayForecast.map((item) => item.main.temp_min);
 
-  const highTemp =
-    highTemps.length > 0 ? Math.max(...highTemps) : weather.main.temp_max;
+  console.log("Current Temp:", weather.main.temp);
+console.log("Forecast Highs:", highTemps);
+console.log("Forecast Lows:", lowTemps);
+console.log("Computed High:", Math.max(...highTemps));
+console.log("Computed Low:", Math.min(...lowTemps));
+console.log("Today's Forecast:", todayForecast);
 
-  const lowTemp =
-    lowTemps.length > 0 ? Math.min(...lowTemps) : weather.main.temp_min;
+  // Get forecast high/low (or fallback to current API values)
+let highTemp =
+  highTemps.length > 0 ? Math.max(...highTemps) : weather.main.temp_max;
+
+let lowTemp =
+  lowTemps.length > 0 ? Math.min(...lowTemps) : weather.main.temp_min;
+
+// Current temperature
+const currentTemp = weather.main.temp;
+
+if (highTemp < currentTemp) {
+  highTemp = currentTemp;
+}
+
+if (lowTemp > currentTemp) {
+  lowTemp = currentTemp;
+}
 
   const iconName = getWeatherIcon(weather.weather[0].description);
   console.log(
@@ -200,8 +219,8 @@ function WeatherCard({ weather, forecast, unit }) {
           </div>
 
           <div className="flex items-center space-x-4 text-white/60 text-sm">
-            <span>Highest: {formatTemperature(highTemp, unit)}°</span>
-            <span>Lowest: {formatTemperature(lowTemp, unit)}°</span>
+            <span>Today's High: {formatTemperature(highTemp, unit)}°</span>
+            <span>Today's Low: {formatTemperature(lowTemp, unit)}°</span>
           </div>
         </div>
         <div
