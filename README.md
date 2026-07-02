@@ -1,4 +1,4 @@
-# WeatherFlow
+# Sky Sense
 
 A modern weather application built with **React**, **Vite**, and **Tailwind CSS** that provides real-time weather information, a 5-day forecast, and a responsive user experience using the OpenWeather API.
 
@@ -69,7 +69,7 @@ Add screenshots of the application here.
 * Favorite cities
 * PWA support
 
-## Author
+## Author Muawaz
 
 **MHCoding**
 
