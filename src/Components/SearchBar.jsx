@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MapPin, Search, X } from "lucide-react";
-import { searchCities } from "../services/weatherAPI";
+import { searchCities } from "../services/WeatherAPI";
 
 function SearchBar({ onSearch, onLocationSearch, loading }) {
   const [query, setQuery] = useState("");
