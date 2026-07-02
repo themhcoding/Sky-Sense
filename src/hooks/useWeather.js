@@ -4,7 +4,7 @@ import {
   getCurrentWeatherByCoords,
   getWeatherForecast,
   getWeatherForecastByCoords,
-} from "../services/weatherAPI";
+} from "../services/WeatherAPI";
 
 export const useWeather = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
